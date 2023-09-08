@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>630</x>
-      <y>100</y>
-      <w>170</w>
-      <h>290</h>
-    </coordinates>
-    <panel_attributes>Motorcykel
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>630</x><y>100</y><w>170</w><h>290</h></coordinates><panel_attributes>Motorcykel
 --
 id:int
 fabrikat:string
@@ -34,18 +23,7 @@ getHastighet():int
 setHastighet(int)
 
 
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>360</x>
-      <y>110</y>
-      <w>220</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>MotorcykelHandler
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>110</y><w>220</w><h>190</h></coordinates><panel_attributes>MotorcykelHandler
 --
 list[Motorcyklar]
 --
@@ -55,77 +33,20 @@ addMotorcykel(Motorcykel)
 deleteMotorcykel(int:id)
 updateMotorcykel(int:id, Motorcykel)
 readMotorcykelDB():list[Motorcykel]
+create_conn_sqllite(str:dbname)
 
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>100</x>
-      <y>110</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>main
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>110</y><w>210</w><h>190</h></coordinates><panel_attributes>main
 --
 mc_handler:MotorcykelHandler
 menu_printer:MotorcykelAppPrinter
 --
-main()</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>570</x>
-      <y>150</y>
-      <w>80</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..n</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>300</x>
-      <y>160</y>
-      <w>80</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..n</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>100</x>
-      <y>360</y>
-      <w>220</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>motorcykel_app_printer
+main()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>150</y><w>80</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>160</y><w>80</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>360</y><w>220</w><h>130</h></coordinates><panel_attributes>motorcykel_app_menu
 --
 printMenu()
 PrintListMotorcykel(list[Motorcykel])
-addMotorcykel():Motorcykel
+createMotorcykel():Motorcykel
 updateMotorcykel():Motorcykel
-deleteMotorcykel():int</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>180</x>
-      <y>290</y>
-      <w>60</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..n</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
-  </element>
-</diagram>
+deleteMotorcykel():int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>290</y><w>50</w><h>90</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element></diagram>
