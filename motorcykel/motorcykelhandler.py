@@ -1,6 +1,7 @@
 #https://antares-sql.app/downloads
 #https://pynative.com/python-sqlite/#h-create-sqlite-table-from-python
 #https://www.sqlite.org/autoinc.html
+#https://pynative.com/python-sqlite/
 
 import sqlite3
 from sqlite3 import Error
@@ -42,7 +43,26 @@ class MotorcykelHandler:
         print("Record inserted successfully into SqliteDb_developers table ", cursor.rowcount)
         cursor.close()
 
+
+    def deleteMotorcykel(self, t_id):
+        try:
+            sqliteConnection = sqlite3.connect(self.db_name)
+            cursor = sqliteConnection.cursor()
         
+
+            # Deleting single record now
+            sql_delete_query = f"""DELETE from motorcyklar where id = {int(t_id)}"""
+            cursor.execute(sql_delete_query)
+            sqliteConnection.commit()
+            print(f"\tMotorcykel med id {t_id} bortagen! ")
+            cursor.close()
+
+        except sqlite3.Error as error:
+            print("\tFailed to delete record from sqlite table", error)
+        finally:
+            if sqliteConnection:
+                sqliteConnection.close()
+                #print("the sqlite connection is closed")  
 
     def create_conn_sqllite(self, db_file):
         # create a database connection to a SQLite database
@@ -58,6 +78,50 @@ class MotorcykelHandler:
 
         return conn
     
+
+    def readSqliteTable(self):
+
+        lista_motorcyklar = []
+
+        try:
+            sqliteConnection = sqlite3.connect(self.db_name)
+            cursor = sqliteConnection.cursor()
+            #print("Connected to SQLite")
+
+            sqlite_select_query = """SELECT * from motorcyklar ORDER BY fabrikat"""
+            cursor.execute(sqlite_select_query)
+            records = cursor.fetchall()
+            print("Antal rader:  ", len(records), "\n")
+            #print("Printing each row")
+            
+            '''for row in records:
+                print("Id: ", row[0])
+                print("Fabrikat: ", row[1])
+                print("Modell: ", row[2])
+                print("Kubik: ", row[3])
+                print("Vikt: ", row[4])
+                print("Hk: ", row[5])
+                print("ToppHastighet: ", row[6])
+                print("\n")
+            '''   
+
+            for row in records:
+                   #t_bike = motorcykel.Motorcykel(1,"Honda", "CB", 125, 180, 12, 110)
+                en_motorcykel = motorcykel.Motorcykel(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
+                lista_motorcyklar.append(en_motorcykel)
+                
+            cursor.close()
+
+        except sqlite3.Error as error:
+            print("Failed to read data from sqlite table", error)
+        finally:
+            if sqliteConnection:
+                sqliteConnection.close()
+                print("The SQLite connection is closed")
+
+        return lista_motorcyklar
+
+#----------------------------------------------------------------------------------------------------    
     #Skapar tabellen i databasen, körs bara första gången
     def create_table(self):
         try:

@@ -1,5 +1,8 @@
 import os
 import motorcykel
+from prettytable import PrettyTable
+# pip install prettytable
+#https://www.javatpoint.com/prettytable-in-python
 
 
 def printMenu():
@@ -26,3 +29,18 @@ def createMotorcykel():
     topphastighet = int(input("\n\tMata in topphastighet: "))
 
     return   motorcykel.Motorcykel(None, fabrikat, modell, kubik, vikt, hk, topphastighet)
+#List all motorcykles
+def printListMotorcykel(list_motorcyklar):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    t_table = PrettyTable(['Id', 'Fabrikat', 'Modell', 'Kubik', 'Vikt', 'Hk', 'Topphastighet'])
+
+    for mc in list_motorcyklar:
+        t_table.add_row([mc.id, mc.fabrikat, mc.modell, mc.kubik, mc.vikt, mc.hk, mc.topphastighet])
+    
+    print(t_table)
+    input("Fortsätta? tryck Enter: ")
+
+
+def printDeleteMotorcykel():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    return input("\tMata in id på motorcykel som ska tas bort: ")
