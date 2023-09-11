@@ -4,7 +4,7 @@ from prettytable import PrettyTable
 # pip install prettytable
 #https://www.javatpoint.com/prettytable-in-python
 
-
+#printMenu()-skriver ut muny
 def printMenu():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("\n------------------------------------------\n")
@@ -17,6 +17,7 @@ def printMenu():
     val = input("\n\tMata in val: ")
     return val
 
+#createMotorcykle()-läser in ny Motorcykel och returnerar den
 #return Motorcykel
 def createMotorcykel():
     os.system('cls' if os.name == 'nt' else 'clear')
