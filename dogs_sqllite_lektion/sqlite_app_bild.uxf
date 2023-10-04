@@ -9,7 +9,7 @@
       <w>270</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>MobilApp - Python, KIVY, Sqllite
+    <panel_attributes>MobilApp - Python, KIVY, SQLite
 bg=red
 </panel_attributes>
     <additional_attributes/>
@@ -48,7 +48,7 @@ bg=yellow</panel_attributes>
       <w>120</w>
       <h>110</h>
     </coordinates>
-    <panel_attributes>SQLlite
+    <panel_attributes>SQLite
 FilDatabas
 med Tabeller
 bg=blue</panel_attributes>
