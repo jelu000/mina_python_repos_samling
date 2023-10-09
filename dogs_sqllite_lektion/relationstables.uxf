@@ -16,6 +16,7 @@ namn: text
 ras_id: integer
 kennel_id
 utstningar_id
+bg=yellow
 
 [waiting for message]</panel_attributes>
     <additional_attributes/>
@@ -33,7 +34,8 @@ utstningar_id
 id: integer
 namn: text
 adress: text
-kennel_id:integer</panel_attributes>
+kennel_id:integer
+bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -50,7 +52,8 @@ id: integer
 namn: text
 color: text
 medelvikt: integer
-typ: text</panel_attributes>
+typ: text
+bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -90,7 +93,8 @@ m1=1..1</panel_attributes>
 id: integer
 namn: text
 ort: text
-datum: date</panel_attributes>
+datum: date
+bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -105,7 +109,8 @@ datum: date</panel_attributes>
 --
 id: integer
 dog_id: integer
-utstallning_id</panel_attributes>
+utstallning_id
+bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

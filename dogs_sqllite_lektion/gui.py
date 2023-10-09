@@ -9,7 +9,7 @@ dogs_object = dogs_handler.dogs_handler()
 
 root = Tk()  # create root window
 root.title("Hundar")
-root.geometry("800x400")
+root.geometry("600x400")
 
 #Top panel ----------------------
 pTop = PanedWindow()

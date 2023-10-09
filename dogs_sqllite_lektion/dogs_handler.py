@@ -1,24 +1,19 @@
 import sqlite3
 from sqlite3 import Error
 import dog
-
 #create table dogs (id integer primary key, namn text, ras text);
 #insert into dogs (namn, ras) values("torin", "perro");
 #https://www.sqlitetutorial.net/download-install-sqlite/
 #https://www.sqlite.org/quickstart.html
 #https://www.tutorialspoint.com/sqlite/
 
-
 class dogs_handler:
 
     def __init__(self):
-        
         self.db_name = "dogs.db"
 
     #Create - add_dog()-------------------------------------------------------------------
     def add_dog(self, namn, ras):
-
-        dog_list = []
 
         sqliteConnection = sqlite3.connect(self.db_name)
         cursor = sqliteConnection.cursor()
@@ -91,7 +86,3 @@ class dogs_handler:
                 print("sqlite connection is closed")
         
         
-        
-        
-
-
