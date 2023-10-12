@@ -9,7 +9,7 @@ dogs_object = dogs_handler.dogs_handler()
 
 root = Tk()  # create root window
 root.title("Hundar")
-root.geometry("600x400")
+root.geometry("580x400")
 
 #Top panel ----------------------
 pTop = PanedWindow()
@@ -48,8 +48,8 @@ def updateButtonEvent():
             #updateListBox()
 
         else:
-            print("Uppdatera hund")
-            #dogs_object.update_dog(int(aktivt_id), hundnamn, hundras)
+            print(f"Uppdatera hund id: {hund_id}, Namn: {hundnamn}, Ras: {hundras}")
+            dogs_object.update_dog(int(hund_id), hundnamn, hundras)
 
         
         updateListBox()
@@ -112,25 +112,25 @@ pBottom = PanedWindow()
 pBottom.pack(fill=BOTH, expand=1)
 
 labelId = Label(pBottom, text="")
-labelId.grid(row=0, column=0, sticky=W, padx=20, pady=5)
+labelId.grid(row=0, column=0, sticky=W, padx=10, pady=5)
 
 labelNamn = Label(pBottom, text="Namn: ")
-labelNamn.grid(row=1, column=0, sticky=W, padx=20, pady=5)
+labelNamn.grid(row=1, column=0, sticky=W, padx=10, pady=5)
 tfNamn = Entry(pBottom)
 tfNamn.grid(row=1, column=1, sticky=W, padx=0, pady=5)
 
 labelRas = Label(pBottom, text="Ras: ")
-labelRas.grid(row=2, column=0, sticky=W, padx=20, pady=5)
+labelRas.grid(row=2, column=0, sticky=W, padx=10, pady=5)
 tfRas = Entry(pBottom)
 tfRas.grid(row=2, column=1, sticky=W, padx=0, pady=5)
 
 buttonUppdatera = Button(pBottom, text="Uppdatera", command=updateButtonEvent)
-buttonUppdatera.grid(row=3, column=0, sticky=W, padx=20, pady=5)
+buttonUppdatera.grid(row=3, column=0, sticky=W, padx=10, pady=5)
 
 buttonDel = Button(pBottom, text="Tabort hund", command=delButtonEvent)
-buttonDel.grid(row=3, column=1, sticky=W, padx=20, pady=5)
+buttonDel.grid(row=3, column=1, sticky=W, padx=10, pady=5)
 
 buttonClear = Button(pBottom, text="Rensa textfält", command=emtyFields)
-buttonClear.grid(row=3, column=2, sticky=W, padx=20, pady=5)
+buttonClear.grid(row=3, column=2, sticky=W, padx=10, pady=5)
 
 root.mainloop()

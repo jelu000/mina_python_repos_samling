@@ -20,7 +20,7 @@ class dogs_handler:
         sqlite_insert_query = f"""INSERT INTO dogs
                           (namn, ras)  
                           VALUES  
-                          ('{namn}', '{ras}') """
+                          ('{namn.capitalize()}', '{ras.capitalize()}') """
         
         #print(sqlite_insert_query)
         count = cursor.execute(sqlite_insert_query)
@@ -38,7 +38,7 @@ class dogs_handler:
             sqliteConnection = sqlite3.connect(self.db_name)
             cursor = sqliteConnection.cursor()
             #print("Connected to SQLite")
-            sqlite_select_query = """SELECT * from dogs"""
+            sqlite_select_query = """SELECT * from dogs ORDER BY namn"""
             cursor.execute(sqlite_select_query)
             records = cursor.fetchall()
             #Lägger till varje hund i databasen till hundlistan  
@@ -51,7 +51,7 @@ class dogs_handler:
             cursor.close()
         #skriver ut fel om det uppstår
         except sqlite3.Error as error:
-            print("Failed to read data from sqlite table", error)
+            print("Get_dog_list()-Failed to read data from sqlite table", error)
         #stänger databas koppling 
         finally:
             if sqliteConnection:
@@ -62,7 +62,46 @@ class dogs_handler:
   
     #Update - Dog--------------------------------------
     def update_dog(self, id, name, ras):
-        print("inte klar, ska uppdatera hund i databas")
+        #print("inte klar, ska uppdatera hund i databas")
+        int_id = int(id)
+
+        # Use a parameterized query
+        #sqlite_insert_query = f"""UPDATE dogs SET namn = ?, ras = ? WHERE id = {int_id}
+        #VALUES = ('{name}', '{ras}', {int_id});"""
+
+        sqlite_insert_query = f"""UPDATE dogs SET namn='{name}', ras='{ras}' WHERE id={id}; """
+            
+        print(sqlite_insert_query) 
+
+        try:
+            sqliteConnection = sqlite3.connect("dogs.db")
+            cursor = sqliteConnection.cursor()
+            #sqlite_insert_query = f"""UPDATE dogs
+                            #SET namn={name},
+                            #ras={ras}  
+                            #WHERE id={id};  
+                            #"""
+            
+            # Use a parameterized query
+            #sqlite_insert_query = f"""UPDATE dogs SET namn = ?, ras = ? WHERE id = {int_id}
+            #VALUES = ('{name}', '{ras}', {int_id});"""
+            
+        
+            cursor.execute(sqlite_insert_query)
+            sqliteConnection.commit()
+            print(f"\nupdate_dog() {id}=id, {name}=namn , {ras}=ras  \n")
+            #stänger cursor objektet    
+            cursor.close()
+            #stänger conection
+            sqliteConnection.close()
+        except sqlite3.Error as error:
+            print("update_dog()-Failed to read data from sqlite table", error)
+            
+        #stänger databas koppling 
+        finally:
+            if sqliteConnection:
+                sqliteConnection.close()
+                print("The SQLite connection is closed")
         
     
     #Delete - delete_dog-----------------------------
