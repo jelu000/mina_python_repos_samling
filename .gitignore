@@ -1,1 +1,8 @@
+# Ignore SQLite database files in the "glosor" subfolder
+dogs_sqllite_lektion/*.sqlite
+
+# Add other rules as needed
 dogs_sqllite_lektion/dogs.db
+
+# Add other rules as needed
+motorcykel/motorcyklar.db
